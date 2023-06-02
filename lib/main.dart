@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:real_diploma/presentation/screens/bottom_nav_bar_controller.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:real_diploma/presentation/screens/article_screen.dart';
+
+import 'firebase_options.dart';
 import 'constants/colors.dart';
+import 'presentation/screens/auth/auth_handler_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(const MyApp());
 }
@@ -24,7 +32,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const BottomNavBarController(),
+      home: const AuthHandlerScreen(),
     );
   }
 }

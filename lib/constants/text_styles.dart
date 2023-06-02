@@ -8,8 +8,13 @@ abstract class AppTextStyles {
     color: AppColors.black,
     fontWeight: FontWeight.w400,
   );
+  static const mediumText = TextStyle(
+    fontSize: 16,
+    color: AppColors.black,
+    fontWeight: FontWeight.w400,
+  );
 
-  static const regularText = TextStyle(
+  static const mediumPlusText = TextStyle(
     fontSize: 18,
     color: AppColors.lightText,
     fontWeight: FontWeight.w400,
@@ -39,21 +44,41 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
 
-  static const largeText = TextStyle(
-    fontSize: 16,
-    color: AppColors.black,
-    fontWeight: FontWeight.w400,
-  );
-
   static const captionText = TextStyle(
     fontSize: 12,
     color: AppColors.lightGrey,
     fontWeight: FontWeight.w400,
   );
 
-  static const appBarTitle = TextStyle(
+  static const largeText = TextStyle(
     fontSize: 20,
     color: AppColors.black,
     fontWeight: FontWeight.w400,
+  );
+
+  static const authLogoText = TextStyle(
+    fontSize: 40,
+    color: AppColors.black,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const forgotPasswordText = TextStyle(
+    fontSize: 14,
+    color: AppColors.black,
+    fontWeight: FontWeight.w400,
+    decoration: TextDecoration.underline,
+  );
+
+   static const signInLink = TextStyle(
+    fontSize: 16,
+    color: AppColors.black,
+    fontWeight: FontWeight.w400,
+    decoration: TextDecoration.underline,
+  );
+
+  static const signInBtnCaption = TextStyle(
+    fontSize: 20,
+    color: AppColors.white,
+    fontWeight: FontWeight.w500,
   );
 }

@@ -18,7 +18,7 @@ class TrainingHome extends StatelessWidget {
         body: const Center(
           child: Text(
             'Training screen',
-            style: AppTextStyles.regularText,
+            style: AppTextStyles.mediumPlusText,
           ),
         ),
       ),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/bottom_nav_bar.dart';
 import 'home_screen.dart';
 import 'profile_screen.dart';
-import 'training_mode.dart/training_home.dart';
+import 'training_mode/training_home.dart';
 import 'vocabulary_screen.dart';
 
 class BottomNavBarController extends StatefulWidget {
