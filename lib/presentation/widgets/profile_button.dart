@@ -5,7 +5,7 @@ import '../../constants/text_styles.dart';
 
 class ProfileButton extends StatelessWidget {
   final String title;
-  final Function handler;
+  final Function() handler;
   final IconData icon;
 
   const ProfileButton({
@@ -18,7 +18,7 @@ class ProfileButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => handler,
+      onTap: handler,
       child: Container(
         height: 50,
         padding: const EdgeInsets.symmetric(horizontal: 15),

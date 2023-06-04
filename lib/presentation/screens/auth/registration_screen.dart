@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:real_diploma/data/auth_controller.dart';
 
 import '../../../constants/text_styles.dart';
 import '../../widgets/auth/password_textfield.dart';
@@ -6,11 +7,12 @@ import '../../widgets/auth/sign_in_button.dart';
 import '../../widgets/auth/simple_textfield.dart';
 
 class RegistrationScreen extends StatelessWidget {
+  static const String route = 'registration';
+
   RegistrationScreen({Key? key}) : super(key: key);
 
   final nameController = TextEditingController();
   final emailController = TextEditingController();
-  final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
@@ -55,21 +57,14 @@ class RegistrationScreen extends StatelessWidget {
                   hintText: '*********',
                   controller: passwordController,
                 ),
-                /* const SizedBox(height: 10),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: const Text(
-                      'Fogot Password?',
-                      style: AppTextStyles.forgotPasswordText,
-                    ),
-                  ),
-                ), */
                 const SizedBox(height: 70),
                 SignInButton(
                   caption: 'Sign Up',
-                  onTap: () {},
+                  onTap: () => AuthController().signUp(
+                    nameController.text,
+                    emailController.text,
+                    passwordController.text,
+                  ),
                 ),
                 const SizedBox(height: 20),
               ],

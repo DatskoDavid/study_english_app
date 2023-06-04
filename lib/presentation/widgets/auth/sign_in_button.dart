@@ -6,7 +6,7 @@ import '../../../constants/text_styles.dart';
 
 class SignInButton extends StatelessWidget {
   final String caption;
-  final Function onTap;
+  final Function() onTap;
 
   const SignInButton({
     super.key,
@@ -17,16 +17,16 @@ class SignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Container(
         height: 50,
         decoration: BoxDecoration(
           color: AppColors.primaryColor,
           borderRadius: BorderRadius.circular(AppBorderRadius.large),
         ),
-        child: const Center(
+        child: Center(
           child: Text(
-            'Sign In',
+            caption,
             style: AppTextStyles.signInBtnCaption,
           ),
         ),

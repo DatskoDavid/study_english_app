@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_diploma/constants/text_styles.dart';
+import 'package:real_diploma/data/auth_controller.dart';
+import 'package:real_diploma/presentation/screens/auth/registration_screen.dart';
 import 'package:real_diploma/presentation/widgets/auth/password_textfield.dart';
 
 import '../../widgets/auth/sign_in_button.dart';
@@ -47,21 +49,13 @@ class LoginScreen extends StatelessWidget {
                   hintText: '*********',
                   controller: passwordController,
                 ),
-                /* const SizedBox(height: 10),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: const Text(
-                      'Fogot Password?',
-                      style: AppTextStyles.forgotPasswordText,
-                    ),
-                  ),
-                ), */
                 const SizedBox(height: 70),
                 SignInButton(
                   caption: 'Sign In',
-                  onTap: () {},
+                  onTap: () => AuthController().signIn(
+                    emailController.text,
+                    passwordController.text,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -72,7 +66,10 @@ class LoginScreen extends StatelessWidget {
                       style: AppTextStyles.mediumText,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => Navigator.pushNamed(
+                        context,
+                        RegistrationScreen.route,
+                      ),
                       child: const Text(
                         'Sign Up',
                         style: AppTextStyles.signInLink,

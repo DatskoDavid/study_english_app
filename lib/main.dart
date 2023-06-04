@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:real_diploma/presentation/screens/article_screen.dart';
+import 'package:real_diploma/presentation/screens/auth/registration_screen.dart';
 
 import 'firebase_options.dart';
 import 'constants/colors.dart';
@@ -23,7 +24,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // home: const MainScreen(),
       theme: ThemeData(
         useMaterial3: true,
         colorScheme:
@@ -33,6 +33,18 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: const AuthHandlerScreen(),
+      onGenerateRoute: (settings) {
+        if (settings.name == RegistrationScreen.route) {
+          return MaterialPageRoute(
+            builder: (context) => RegistrationScreen(),
+          );
+        }
+
+        assert(false, 'Need to implement: ${settings.name}');
+        return null;
+      },
+
+
     );
   }
 }

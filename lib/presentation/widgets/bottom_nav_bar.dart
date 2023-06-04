@@ -24,10 +24,10 @@ class BottomNavBar extends StatelessWidget {
           icon: Icon(Icons.home),
           label: 'Home',
         ),
-        // BottomNavigationBarItem(
-        //   icon: Icon(Icons.book),
-        //   label: 'Vocabulary',
-        // ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.book),
+          label: 'Vocabulary',
+        ),
         BottomNavigationBarItem(
           icon: Icon(Icons.ballot),
           label: 'Training',
