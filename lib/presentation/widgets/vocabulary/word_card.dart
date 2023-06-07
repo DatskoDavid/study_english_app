@@ -1,23 +1,18 @@
-import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/colors.dart';
 import '../../../constants/text_styles.dart';
-import '../../../data/api_models/word_api.dart';
-import '../../../data/mappers/word_mapper.dart';
 import '../../../domain/models/word.dart';
 
 class WordCard extends StatelessWidget {
-  
-  final DocumentSnapshot documentSnapshot;
+  final Word word;
   final Function buttonHandler;
   //final Function delete;
 
   WordCard({
     super.key,
-    required this.documentSnapshot,
+    required this.word,
     required this.buttonHandler,
     //required this.delete,
   });
@@ -49,11 +44,11 @@ class WordCard extends StatelessWidget {
       child: Center(
         child: ListTile(
           title: Text(
-            documentSnapshot['word'],
+            word.word,
             style: AppTextStyles.largeText,
           ),
           subtitle: Text(
-            '[${documentSnapshot['pronunciation']}]',
+            word.phonetic,
             style: AppTextStyles.phoneticText,
           ),
           trailing: SizedBox(

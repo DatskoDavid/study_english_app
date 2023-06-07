@@ -34,19 +34,20 @@ class Word extends Equatable {
   
   factory Word.fromFirestore(
     DocumentSnapshot<Object?> snapshot,
-    // SnapshotOptions? options,
+    SnapshotOptions? options,
   ) {
     final data = snapshot.data() as Map<String, dynamic>;
 
-    final allMeanings = data['meanings'];
+    // final allMeanings = data['meanings'];
 
-    final formattedMeaningList =
-        allMeanings.map(((item) => Meaning.fromFirestore(item))).toList();
+    // final formattedMeaningList =
+    //     allMeanings.map(((item) => Meaning.fromFirestore(item))).toList();
 
     return Word(
       word: data['word'],
       phonetic: data['phonetic'],
-      meanings: formattedMeaningList,
+      // meanings: formattedMeaningList,
+      meanings: [],
     );
   }
 

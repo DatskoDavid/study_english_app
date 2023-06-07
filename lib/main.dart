@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:real_diploma/presentation/screens/article_screen.dart';
+import 'package:real_diploma/data/datasources/firestore_database.dart';
 import 'package:real_diploma/presentation/screens/auth/registration_screen.dart';
 
 import 'firebase_options.dart';
@@ -14,6 +14,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+debugPrint('HERE: ${FirestoreDatabase().getCollection()}');
+
+  //debugPrint('HERE: ${FirestoreDatabase().getDataOnce_customObjects()}');
 
   runApp(const MyApp());
 }

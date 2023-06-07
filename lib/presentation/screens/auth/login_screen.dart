@@ -39,7 +39,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 50),
                 SimpleTextField(
-                  label: 'Username',
+                  label: 'Email',
                   hintText: 'Start typing...',
                   controller: emailController,
                 ),

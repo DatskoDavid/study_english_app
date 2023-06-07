@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
+import 'package:real_diploma/data/datasources/firestore_database.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text_styles.dart';
+import '../../domain/models/word.dart';
 import '../widgets/vocabulary/add_word_dialog.dart';
 import '../widgets/vocabulary/word_card.dart';
 
@@ -21,9 +23,21 @@ class VocabularyScreen extends StatelessWidget {
         AboutWordScreen.routeName,
         arguments: word,
       ); */
+/* 
+  var simpleWordsList;
+
+  
+
+  void getSimpleListOfWords() async {
+    final allWordsFuture = FirestoreDatabase().getWord('12xp7RE4nwKG3sjytqhl');
+    simpleWordsList = await allWordsFuture;
+    print(simpleWordsList);
+  } */
 
   @override
   Widget build(BuildContext context) {
+// getSimpleListOfWords();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.background,
@@ -38,7 +52,19 @@ class VocabularyScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
-        child: StreamBuilder(
+        /* child: ListView.builder(
+          itemCount: simpleWordsList.length,
+          itemBuilder: (context, index) {
+        /*     final DocumentSnapshot documentSnapshot =
+                snapshot.data!.docs[index];
+ */
+
+            return WordCard(
+                word: simpleWordsList[index],
+                buttonHandler: () {} /* goToAboutWordScreen */);
+          },
+        ), */
+        /* child: StreamBuilder(
           stream: _wordsCollection.snapshots(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -55,7 +81,7 @@ class VocabularyScreen extends StatelessWidget {
             }
             return const Center(child: CircularProgressIndicator());
           },
-        ),
+        ), */
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(left: 10),

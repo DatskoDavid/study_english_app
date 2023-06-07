@@ -1,6 +1,6 @@
 import 'package:real_diploma/data/mappers/word_mapper.dart';
 
-import 'datasources/firebase_datasource.dart';
+import 'datasources/firestore_database.dart';
 import 'datasources/word_datasource.dart';
 
 class DataHandler {
