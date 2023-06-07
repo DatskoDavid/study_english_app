@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:real_diploma/data/datasources/firestore_database.dart';
 import 'package:real_diploma/presentation/screens/auth/registration_screen.dart';
+import 'package:real_diploma/presentation/screens/bottom_nav_bar_controller.dart';
+import 'package:real_diploma/presentation/screens/training_mode/input_word_screen.dart';
 import 'package:real_diploma/presentation/screens/training_mode/quiz_screen.dart';
+import 'package:real_diploma/presentation/screens/training_mode/result_screen.dart';
+import 'package:real_diploma/presentation/screens/training_mode/training_home.dart';
 import 'package:real_diploma/presentation/screens/vocabulary_screen.dart';
 
+import 'domain/models/training_info.dart';
 import 'domain/models/word.dart';
 import 'firebase_options.dart';
 import 'constants/colors.dart';
@@ -18,10 +23,6 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  debugPrint('HERE: ${FirestoreDatabase().getCollection()}');
-
-  //debugPrint('HERE: ${FirestoreDatabase().getDataOnce_customObjects()}');
 
   runApp(const MyApp());
 }
@@ -41,9 +42,14 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       // home: const AuthHandlerScreen(),
-      home: VocabularyScreen(),
+      home: const TrainingHome(),
       onGenerateRoute: (settings) {
-        if (settings.name == RegistrationScreen.route) {
+        if (settings.name == BottomNavBarController.routeName) {
+          return MaterialPageRoute(
+            builder: (context) => const BottomNavBarController(),
+          );
+        }
+        else if (settings.name == RegistrationScreen.routeName) {
           return MaterialPageRoute(
             builder: (context) => RegistrationScreen(),
           );
@@ -58,6 +64,22 @@ class MyApp extends StatelessWidget {
 
           return MaterialPageRoute(
             builder: (context) => QuizScreen(word: word),
+          );
+        } else if (settings.name == InputWordScreen.routeName) {
+          final trainingInfo = settings.arguments as TrainingInfo;
+
+          return MaterialPageRoute(
+            builder: (context) => InputWordScreen(trainingInfo: trainingInfo),
+          );
+        } else if (settings.name == ResultScreen.routeName) {
+          final trainingInfo = settings.arguments as TrainingInfo;
+
+          return MaterialPageRoute(
+            builder: (context) => ResultScreen(trainingInfo: trainingInfo),
+          );
+        } else if (settings.name == TrainingHome.routeName) {
+          return MaterialPageRoute(
+            builder: (context) => const TrainingHome(),
           );
         }
         assert(false, 'Need to implement: ${settings.name}');

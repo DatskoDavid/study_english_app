@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../constants/colors.dart';
 import '../../../domain/models/training_info.dart';
 import '../../../domain/models/word.dart';
+import '../../widgets/training/next_screen_btn.dart';
 import '../../widgets/training/quiz_variant.dart';
+import 'input_word_screen.dart';
 
 class QuizScreen extends StatefulWidget {
   static const routeName = 'quiz';
@@ -28,7 +30,7 @@ class _QuizScreenState extends State<QuizScreen> {
       'assume',
       'permit',
       'admit',
-      'sun'
+      widget.word.word,
       /* 
       'goal', 
       'about', 
@@ -92,10 +94,10 @@ class _QuizScreenState extends State<QuizScreen> {
               separatorBuilder: (context, index) => const SizedBox(height: 20),
             ),
             const SizedBox(height: 50),
-            /* NextScreenBtn(
+            NextScreenBtn(
               routeName: InputWordScreen.routeName,
               arguments: trainingInfo,
-            ), */
+            ),
           ],
         ),
       ),

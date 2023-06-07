@@ -30,7 +30,7 @@ class VocabularyScreen extends StatelessWidget {
           padding: EdgeInsets.only(left: 10.0),
           child: Text(
             'Vocabulary',
-            style: AppTextStyles.largeText,
+            style: AppTextStyles.titleText,
           ),
         ),
         // centerTitle: true,

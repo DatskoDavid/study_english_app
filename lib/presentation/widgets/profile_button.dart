@@ -32,7 +32,7 @@ class ProfileButton extends StatelessWidget {
             const SizedBox(width: 10),
             Text(
               title,
-              style: AppTextStyles.largeText,
+              style: AppTextStyles.titleText,
             ),
             const Spacer(),
             const Icon(Icons.arrow_forward_rounded),

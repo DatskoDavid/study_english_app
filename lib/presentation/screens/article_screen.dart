@@ -47,7 +47,7 @@ class ArticleScreen extends StatelessWidget {
 
                     const Text(
                       'What Happens to Your Body When You Eat Oatmeal Every Day',
-                      style: AppTextStyles.largeText,
+                      style: AppTextStyles.titleText,
                     ),
                     const SizedBox(height: 10),
                     Container(

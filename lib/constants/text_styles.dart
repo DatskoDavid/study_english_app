@@ -33,8 +33,9 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
 
-  static const cardOfDayTitle = TextStyle(
+  static const titleText = TextStyle(
     fontSize: 20,
+    color: AppColors.black,
     fontWeight: FontWeight.w400,
   );
 
@@ -47,12 +48,6 @@ abstract class AppTextStyles {
   static const captionText = TextStyle(
     fontSize: 12,
     color: AppColors.lightGrey,
-    fontWeight: FontWeight.w400,
-  );
-
-  static const largeText = TextStyle(
-    fontSize: 20,
-    color: AppColors.black,
     fontWeight: FontWeight.w400,
   );
 
@@ -69,7 +64,7 @@ abstract class AppTextStyles {
     decoration: TextDecoration.underline,
   );
 
-   static const signInLink = TextStyle(
+  static const signInLink = TextStyle(
     fontSize: 16,
     color: AppColors.black,
     fontWeight: FontWeight.w400,

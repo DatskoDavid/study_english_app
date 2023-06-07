@@ -8,6 +8,7 @@ import 'vocabulary_screen.dart';
 
 class BottomNavBarController extends StatefulWidget {
   static String routeName = '/main_screen';
+  
 
   const BottomNavBarController({Key? key}) : super(key: key);
 
@@ -16,7 +17,7 @@ class BottomNavBarController extends StatefulWidget {
 }
 
 class _BottomNavBarControllerState extends State<BottomNavBarController> {
-  int _selectedIndex = 0;
+  static int _selectedIndex = 0;
 
   late final _screens = <Widget>[
     const HomeScreen(),

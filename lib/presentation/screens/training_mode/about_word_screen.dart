@@ -42,7 +42,7 @@ class AboutWordScreen extends StatelessWidget {
                     ),
                     Text(
                       'Back',
-                      style: AppTextStyles.largeText,
+                      style: AppTextStyles.titleText,
                     ),
                   ],
                 ),

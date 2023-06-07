@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:real_diploma/constants/colors.dart';
+import 'package:real_diploma/constants/dimens.dart';
 
-import '../../constants/colors.dart';
-import '../../constants/text_styles.dart';
+import '../../../constants/text_styles.dart';
 
-class CardOfDay extends StatelessWidget {
+class ArticleCard extends StatelessWidget {
   final String title;
-  final String description;
-  final String buttonCaption;
   final String image;
 
-  const CardOfDay({
+  const ArticleCard({
     super.key,
     required this.title,
-    required this.description,
-    required this.buttonCaption,
     required this.image,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 180,
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 20,
+      ),
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(AppBorderRadius.large),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.4,
@@ -34,28 +34,32 @@ class CardOfDay extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: AppTextStyles.titleText),
-                Text(description),
+                Text(
+                  title,
+                  style: AppTextStyles.smallText,
+                ),
                 InkWell(
+                  // onTap: () => buttonHandler(),
                   onTap: () {},
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 7,
-                      horizontal: 15,
-                    ),
+                    height: 35,
+                    width: 90,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
                       color: AppColors.primaryColor,
+                      borderRadius: BorderRadius.circular(30),
                     ),
-                    child: Text(
-                      buttonCaption,
-                      style: AppTextStyles.buttonRegularCaption,
+                    child: const Center(
+                      child: Text(
+                        'Read',
+                        style: AppTextStyles.buttonRegularCaption,
+                      ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),
+          SizedBox(width: 20),
           Expanded(
             child: SizedBox(
               width: 50,

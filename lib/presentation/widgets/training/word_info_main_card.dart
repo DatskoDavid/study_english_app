@@ -35,7 +35,7 @@ class WordInfoMainCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text(word.word, style: AppTextStyles.largeText),
+                      Text(word.word, style: AppTextStyles.titleText),
                       const SizedBox(width: 15),
                       // const Icon(Icons.volume_up_rounded),
                     ],

@@ -7,7 +7,7 @@ import '../../widgets/auth/sign_in_button.dart';
 import '../../widgets/auth/simple_textfield.dart';
 
 class RegistrationScreen extends StatelessWidget {
-  static const String route = 'registration';
+  static const String routeName = 'registration';
 
   RegistrationScreen({Key? key}) : super(key: key);
 

@@ -36,7 +36,7 @@ class WordOfDay extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: AppTextStyles.cardOfDayTitle),
+                Text(title, style: AppTextStyles.titleText),
                 SizedBox(height: 10),
                 Text(
                   word,
