@@ -10,7 +10,7 @@ class WordCard extends StatelessWidget {
   final Function buttonHandler;
   //final Function delete;
 
-  WordCard({
+  const WordCard({
     super.key,
     required this.word,
     required this.buttonHandler,

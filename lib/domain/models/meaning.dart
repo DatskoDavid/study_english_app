@@ -7,7 +7,7 @@ class Meaning {
     required this.meaning,
   });
 
-  factory Meaning.fromFirestore(Map<String, String> map) {
+  factory Meaning.fromFirestore(Map<String, dynamic> map) {
     return Meaning(
       partOf: map['partOf']!,
       meaning: map['meaning']!,

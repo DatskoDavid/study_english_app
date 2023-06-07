@@ -8,17 +8,18 @@ class FirestoreDatabase {
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final CollectionReference _collectionRef =
-    FirebaseFirestore.instance.collection('words');
+      FirebaseFirestore.instance.collection('words');
 
-  Future<void> getCollection() async {
+  Future<List<Word>> getCollection() async {
     QuerySnapshot querySnapshot = await _collectionRef.get();
-    final allWords = querySnapshot.docs.map((doc) => doc.data()).toList();
+    
+    final List<Word> allWords =
+        querySnapshot.docs.map((word) => Word.fromFirestore(word)).toList();
 
-    print('1. Raw: ${allWords[0]}');
+    //print('2. Converted: ${simpleWords[0]}');
+    print(allWords.runtimeType);
 
-    // final List<Word> simpleWords = allWords.map((word) => Word.fromFirestore(word)).toList();
-
-    // print('2. Converted: ${simpleWords[0]}');
+    return allWords;
   }
 
   /* Future<Word> getWord(String id) async {
@@ -37,13 +38,12 @@ class FirestoreDatabase {
     return word;
   } */
 
-
-  Future<Word?> getDataOnce_customObjects() async {
+  /*  Future<Word?> getDataOnce_customObjects() async {
     final ref = _firestore
         .collection('words')
         .doc('LDmPK5lFnlKgHJtkzl2y')
         .withConverter(
-          fromFirestore: Word.fromFirestore,
+          //fromFirestore: Word.fromFirestore,
           toFirestore: (Word word, _) => word.toFirestore(),
         );
 
@@ -56,9 +56,9 @@ class FirestoreDatabase {
     }
 
     return word;
-  }
+  } */
 
- /*  Future<List<Word>> getAll() async {
+  /*  Future<List<Word>> getAll() async {
     var wordsList = <Word>[];
 
     _firestore.collection('words').get().then(

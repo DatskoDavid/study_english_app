@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'meaning.dart';
 
 class Word extends Equatable {
-  final int? id;
+  final String? id;
   final String word;
   final String phonetic;
   final List<Meaning> meanings;
@@ -33,21 +33,27 @@ class Word extends Equatable {
 
   
   factory Word.fromFirestore(
+    
     DocumentSnapshot<Object?> snapshot,
-    SnapshotOptions? options,
+    //SnapshotOptions? options,
   ) {
     final data = snapshot.data() as Map<String, dynamic>;
 
-    // final allMeanings = data['meanings'];
+    final allMeanings = data['meanings'] as List;
 
-    // final formattedMeaningList =
-    //     allMeanings.map(((item) => Meaning.fromFirestore(item))).toList();
+    // print('allMeanings type: ${allMeanings.runtimeType}');
+    // print('allMeanings: $allMeanings');
+
+
+    final formattedMeaningList =
+        allMeanings.map((item) => Meaning.fromFirestore(item)).toList();
 
     return Word(
+      id: snapshot.id,
       word: data['word'],
       phonetic: data['phonetic'],
-      // meanings: formattedMeaningList,
-      meanings: [],
+      meanings: formattedMeaningList,
+      //  meanings: [],
     );
   }
 
@@ -65,7 +71,7 @@ class Word extends Equatable {
   }
 
   Word copyWith({
-    int? id,
+    String? id,
     String? word,
     String? phonetic,
     List<Meaning>? meanings,

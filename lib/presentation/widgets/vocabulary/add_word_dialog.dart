@@ -4,7 +4,9 @@ import '../../../data/data_handler.dart';
 import '../../../data/datasources/word_datasource.dart';
 
 class AddWordDialog extends StatefulWidget {
-  const AddWordDialog({Key? key}) : super(key: key);
+  const AddWordDialog({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<AddWordDialog> createState() => _AddWordDialogState();

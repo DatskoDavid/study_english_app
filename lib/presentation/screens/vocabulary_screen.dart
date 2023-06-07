@@ -16,28 +16,8 @@ class VocabularyScreen extends StatelessWidget {
   final _meaningController = TextEditingController(); */
   final _wordsCollection = FirebaseFirestore.instance.collection('words');
 
-  // final wordsDatsource = WordsDatsource('permit');
-
-  /* void goToAboutWordScreen(BuildContext context, Word word) => Navigator.pushNamed(
-        context,
-        AboutWordScreen.routeName,
-        arguments: word,
-      ); */
-/* 
-  var simpleWordsList;
-
-  
-
-  void getSimpleListOfWords() async {
-    final allWordsFuture = FirestoreDatabase().getWord('12xp7RE4nwKG3sjytqhl');
-    simpleWordsList = await allWordsFuture;
-    print(simpleWordsList);
-  } */
-
   @override
   Widget build(BuildContext context) {
-// getSimpleListOfWords();
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.background,
@@ -52,36 +32,23 @@ class VocabularyScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
-        /* child: ListView.builder(
-          itemCount: simpleWordsList.length,
-          itemBuilder: (context, index) {
-        /*     final DocumentSnapshot documentSnapshot =
-                snapshot.data!.docs[index];
- */
-
-            return WordCard(
-                word: simpleWordsList[index],
-                buttonHandler: () {} /* goToAboutWordScreen */);
-          },
-        ), */
-        /* child: StreamBuilder(
-          stream: _wordsCollection.snapshots(),
+        child: FutureBuilder(
+          future: FirestoreDatabase().getCollection(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
-                itemCount: snapshot.data!.docs.length,
+                itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  final DocumentSnapshot documentSnapshot =
-                      snapshot.data!.docs[index];
+                  final word = snapshot.data![index];
                   return WordCard(
-                      documentSnapshot: documentSnapshot,
+                      word: word,
                       buttonHandler: () {} /* goToAboutWordScreen */);
                 },
               );
             }
             return const Center(child: CircularProgressIndicator());
           },
-        ), */
+        ),
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(left: 10),
