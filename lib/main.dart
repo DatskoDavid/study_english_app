@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:real_diploma/data/datasources/firestore_database.dart';
 import 'package:real_diploma/presentation/screens/auth/registration_screen.dart';
+import 'package:real_diploma/presentation/screens/training_mode/quiz_screen.dart';
+import 'package:real_diploma/presentation/screens/vocabulary_screen.dart';
 
+import 'domain/models/word.dart';
 import 'firebase_options.dart';
 import 'constants/colors.dart';
 import 'presentation/screens/auth/auth_handler_screen.dart';
+import 'presentation/screens/training_mode/about_word_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +19,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-debugPrint('HERE: ${FirestoreDatabase().getCollection()}');
+  debugPrint('HERE: ${FirestoreDatabase().getCollection()}');
 
   //debugPrint('HERE: ${FirestoreDatabase().getDataOnce_customObjects()}');
 
@@ -36,19 +40,29 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const AuthHandlerScreen(),
+      // home: const AuthHandlerScreen(),
+      home: VocabularyScreen(),
       onGenerateRoute: (settings) {
         if (settings.name == RegistrationScreen.route) {
           return MaterialPageRoute(
             builder: (context) => RegistrationScreen(),
           );
-        }
+        } else if (settings.name == AboutWordScreen.routeName) {
+          final word = settings.arguments as Word;
 
+          return MaterialPageRoute(
+            builder: (context) => AboutWordScreen(word: word),
+          );
+        } else if (settings.name == QuizScreen.routeName) {
+          final word = settings.arguments as Word;
+
+          return MaterialPageRoute(
+            builder: (context) => QuizScreen(word: word),
+          );
+        }
         assert(false, 'Need to implement: ${settings.name}');
         return null;
       },
-
-
     );
   }
 }

@@ -1,20 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
-import 'package:real_diploma/data/datasources/firestore_database.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text_styles.dart';
 import '../../domain/models/word.dart';
 import '../widgets/vocabulary/add_word_dialog.dart';
 import '../widgets/vocabulary/word_card.dart';
+import 'training_mode/about_word_screen.dart';
 
 class VocabularyScreen extends StatelessWidget {
   VocabularyScreen({Key? key}) : super(key: key);
 
-/*   final _wordController = TextEditingController();
-  final _meaningController = TextEditingController(); */
   final _wordsCollection = FirebaseFirestore.instance.collection('words');
+
+  void goToAboutWordScreen(BuildContext context, Word word) =>
+      Navigator.pushNamed(
+        context,
+        AboutWordScreen.routeName,
+        arguments: word,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -32,20 +37,23 @@ class VocabularyScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
-        child: FutureBuilder(
-          future: FirestoreDatabase().getCollection(),
+        child: StreamBuilder(
+          stream: _wordsCollection.snapshots(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
-                itemCount: snapshot.data!.length,
+                itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
-                  final word = snapshot.data![index];
+                  final word = Word.fromFirestore(snapshot.data!.docs[index]);
                   return WordCard(
-                      word: word,
-                      buttonHandler: () {} /* goToAboutWordScreen */);
+                    word: word,
+                    buttonHandler: () => goToAboutWordScreen(context, word),
+                    // buttonHandler: (){},
+                  );
                 },
               );
             }
+
             return const Center(child: CircularProgressIndicator());
           },
         ),

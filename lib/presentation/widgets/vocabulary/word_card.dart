@@ -7,7 +7,7 @@ import '../../../domain/models/word.dart';
 
 class WordCard extends StatelessWidget {
   final Word word;
-  final Function buttonHandler;
+  final Function() buttonHandler;
   //final Function delete;
 
   const WordCard({
@@ -17,22 +17,8 @@ class WordCard extends StatelessWidget {
     //required this.delete,
   });
 
-/*   Word documentSnapshotToWordModel() {
-    final documentSnapshotList = [];
-    documentSnapshotList.add(documentSnapshot);
-    final firestoreJson = documentSnapshotList
-        .map(json.decode(json.encode(documentSnapshot.data())))
-        .toList();
-
-    final wordApi = WordApi.fromJson(firestoreJson[0]);
-    return WordMapper.fromApi(wordApi);
-  } */
-
-  // late final word = documentSnapshotToWordModel();
-
   @override
   Widget build(BuildContext context) {
-    // print(word);
     return Container(
       height: 74,
       margin: const EdgeInsets.all(10),
@@ -57,8 +43,7 @@ class WordCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 InkWell(
-                  // onTap: () => buttonHandler(context, word),
-                  onTap: () => buttonHandler(context),
+                  onTap: () => buttonHandler(),
                   child: Container(
                     height: 35,
                     width: 90,
