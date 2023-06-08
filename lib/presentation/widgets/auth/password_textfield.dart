@@ -49,7 +49,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
           alignment: Alignment.centerLeft,
           child: Text(
             widget.label,
-            style: AppTextStyles.titleText,
+            style: AppTextStyles.cardTitle,
           ),
         ),
         const SizedBox(height: 5),

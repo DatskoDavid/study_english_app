@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:real_diploma/constants/colors.dart';
 import 'package:real_diploma/constants/dimens.dart';
+import 'package:real_diploma/domain/models/article.dart';
+import 'package:real_diploma/presentation/screens/article_screen.dart';
 
 import '../../../constants/text_styles.dart';
 
 class ArticleCard extends StatelessWidget {
-  final String title;
-  final String image;
+  final Article article;
 
   const ArticleCard({
     super.key,
-    required this.title,
-    required this.image,
+    required this.article,
   });
 
   @override
@@ -31,16 +31,22 @@ class ArticleCard extends StatelessWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.4,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title,
+                  article.title,
                   style: AppTextStyles.smallText,
                 ),
+                const SizedBox(height: 15),
                 InkWell(
-                  // onTap: () => buttonHandler(),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      ArticleScreen.routeName,
+                      arguments: article,
+                    );
+                  },
                   child: Container(
                     height: 35,
                     width: 90,
@@ -59,11 +65,11 @@ class ArticleCard extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 20),
+          const SizedBox(width: 20),
           Expanded(
             child: SizedBox(
               width: 50,
-              child: Image.asset(image),
+              child: Image.asset(article.image),
             ),
           ),
         ],

@@ -33,10 +33,16 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
 
-  static const titleText = TextStyle(
+  static const cardTitle = TextStyle(
     fontSize: 20,
     color: AppColors.black,
     fontWeight: FontWeight.w400,
+  );
+
+  static const sectionTitle = TextStyle(
+    fontSize: 23,
+    color: AppColors.black,
+    fontWeight: FontWeight.w500,
   );
 
   static const buttonRegularCaption = TextStyle(

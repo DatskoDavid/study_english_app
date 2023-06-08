@@ -33,7 +33,7 @@ class TrainingCard extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: AppTextStyles.titleText,
+                style: AppTextStyles.cardTitle,
               ),
               Text(
                 description,

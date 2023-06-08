@@ -34,7 +34,7 @@ class CardOfDay extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: AppTextStyles.titleText),
+                Text(title, style: AppTextStyles.cardTitle),
                 Text(description),
                 InkWell(
                   onTap: () {},

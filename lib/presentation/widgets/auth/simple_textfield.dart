@@ -34,7 +34,7 @@ class SimpleTextField extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Text(
             label,
-            style: AppTextStyles.titleText,
+            style: AppTextStyles.cardTitle,
           ),
         ),
         const SizedBox(height: 5),

@@ -1,8 +1,10 @@
-class Meaning {
+import 'package:equatable/equatable.dart';
+
+class Meaning  extends Equatable {
   final String partOf;
   final String meaning;
 
-  Meaning({
+  const Meaning({
     required this.partOf,
     required this.meaning,
   });
@@ -31,5 +33,6 @@ class Meaning {
     );
   }
 
+  @override
   List<Object?> get props => [partOf, meaning];
 }

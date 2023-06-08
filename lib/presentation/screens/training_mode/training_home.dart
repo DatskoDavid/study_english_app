@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:real_diploma/data/articles_fake_data/articles_data.dart';
 import 'package:real_diploma/presentation/widgets/article_card.dart';
 
 import '../../../constants/text_styles.dart';
@@ -11,46 +12,57 @@ class TrainingHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               top: 60,
               right: 20,
-              bottom: 0,
+              bottom: 50,
               left: 20,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TrainingCard(
+                const Text(
+                  'Trainings',
+                  style: AppTextStyles.sectionTitle,
+                ),
+                const SizedBox(height: 10),
+                const TrainingCard(
                   title: 'Test',
                   description: 'Choose the correct word',
                   routeName: '',
                 ),
-                SizedBox(height: 20),
-                TrainingCard(
+                const SizedBox(height: 20),
+                const TrainingCard(
                   title: 'Enter a word',
                   description: 'Print the full word',
                   routeName: '',
                 ),
-                SizedBox(height: 20),
-                TrainingCard(
+                const SizedBox(height: 20),
+                const TrainingCard(
                   title: 'Mixed',
                   description: 'All in one training',
                   routeName: '',
                 ),
-                SizedBox(height: 50),
-                Text(
+                const SizedBox(height: 50),
+                const Text(
                   'Articles',
-                  style: AppTextStyles.titleText,
+                  style: AppTextStyles.sectionTitle,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ArticleCard(
-                  title:
-                      'What Happens to Your Body When You Eat Oatmeal Every Day',
-                  image: 'assets/images/1.png',
+                  article: articles[0],
+                ),
+                const SizedBox(height: 20),
+                ArticleCard(
+                  article: articles[0],
+                ),
+                const SizedBox(height: 20),
+                ArticleCard(
+                  article: articles[0],
                 ),
               ],
             ),

@@ -31,7 +31,7 @@ class WordCard extends StatelessWidget {
         child: ListTile(
           title: Text(
             word.word,
-            style: AppTextStyles.titleText,
+            style: AppTextStyles.cardTitle,
           ),
           subtitle: Text(
             word.phonetic,
