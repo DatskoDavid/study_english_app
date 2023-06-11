@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:real_diploma/data/datasources/firestore_database.dart';
 
 import '../../../constants/colors.dart';
 import '../../../constants/text_styles.dart';
@@ -8,13 +9,13 @@ import '../../../domain/models/word.dart';
 class WordCard extends StatelessWidget {
   final Word word;
   final Function() buttonHandler;
-  //final Function delete;
+  final Function() deleteWord;
 
   const WordCard({
     super.key,
     required this.word,
     required this.buttonHandler,
-    //required this.delete,
+    required this.deleteWord,
   });
 
   @override
@@ -29,12 +30,13 @@ class WordCard extends StatelessWidget {
       ),
       child: Center(
         child: ListTile(
+          onLongPress: () => deleteWord(),
           title: Text(
             word.word,
             style: AppTextStyles.cardTitle,
           ),
           subtitle: Text(
-            word.phonetic,
+            '[${word.phonetic}]',
             style: AppTextStyles.phoneticText,
           ),
           trailing: SizedBox(

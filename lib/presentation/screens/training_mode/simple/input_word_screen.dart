@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants/colors.dart';
-import '../../../domain/models/training_info.dart';
+import '../../../../constants/colors.dart';
+import '../../../../domain/models/training_info.dart';
 import 'result_screen.dart';
 
 class InputWordScreen extends StatefulWidget {
@@ -34,9 +34,6 @@ class _InputWordScreenState extends State<InputWordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Enter word screen'),
-      ),
       body: Center(
         child: ListView(
           padding: const EdgeInsets.all(20),

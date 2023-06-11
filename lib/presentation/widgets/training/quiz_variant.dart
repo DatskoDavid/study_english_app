@@ -9,7 +9,6 @@ class QuizVariant extends StatefulWidget {
   bool showCorrectAnswer;
 
   QuizVariant({
-    super.key,
     required this.variant,
     required this.isCorrect,
     required this.onTapHandler,
@@ -22,7 +21,7 @@ class QuizVariant extends StatefulWidget {
 
 class _QuizVariantState extends State<QuizVariant> {
   bool isPressed = false;
-
+  
   Color getColor() {
     if (widget.isCorrect && isPressed ||
         widget.isCorrect && widget.showCorrectAnswer) {

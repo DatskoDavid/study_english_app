@@ -3,7 +3,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:real_diploma/presentation/screens/bottom_nav_bar_controller.dart';
 import 'package:real_diploma/presentation/screens/training_mode/training_home.dart';
 
-import '../../../domain/models/training_info.dart';
+import '../../../../domain/models/training_info.dart';
 
 class ResultScreen extends StatelessWidget {
   static const routeName = 'result';
@@ -15,9 +15,6 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ResultScreen'),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -111,10 +108,10 @@ class ResultScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.home),
           onPressed: () {
-            
-            Navigator.pushNamed(
+            Navigator.pushNamedAndRemoveUntil(
               context,
               BottomNavBarController.routeName,
+              (route) => false,
             );
           }),
     );

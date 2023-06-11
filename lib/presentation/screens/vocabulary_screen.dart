@@ -1,17 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
+import 'package:real_diploma/data/auth_controller.dart';
+import 'package:real_diploma/presentation/widgets/vocabulary/delete_word_dialog.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text_styles.dart';
 import '../../domain/models/word.dart';
 import '../widgets/vocabulary/add_word_dialog.dart';
 import '../widgets/vocabulary/word_card.dart';
-import 'training_mode/about_word_screen.dart';
+import 'training_mode/simple/about_word_screen.dart';
 
 class VocabularyScreen extends StatelessWidget {
-  VocabularyScreen({Key? key}) : super(key: key);
-
   final _wordsCollection = FirebaseFirestore.instance.collection('words');
 
   void goToAboutWordScreen(BuildContext context, Word word) =>
@@ -20,6 +20,8 @@ class VocabularyScreen extends StatelessWidget {
         AboutWordScreen.routeName,
         arguments: word,
       );
+
+  List<Word> allWords = <Word>[];
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +40,19 @@ class VocabularyScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: StreamBuilder(
-          stream: _wordsCollection.snapshots(),
+          stream: _wordsCollection
+              .where(
+                "authorId",
+                isEqualTo: AuthController.user!.uid,
+              )
+              .snapshots(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
+              allWords = snapshot.data!.docs
+                  .map(
+                    (doc) => Word.fromFirestore(doc),
+                  )
+                  .toList();
               return ListView.builder(
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
@@ -48,7 +60,7 @@ class VocabularyScreen extends StatelessWidget {
                   return WordCard(
                     word: word,
                     buttonHandler: () => goToAboutWordScreen(context, word),
-                    // buttonHandler: (){},
+                    deleteWord: () => showDeleteDialog(context, word.id!),
                   );
                 },
               );
@@ -76,6 +88,16 @@ class VocabularyScreen extends StatelessWidget {
       // barrierDismissible: false,
       builder: (context) {
         return const AddWordDialog();
+      },
+    );
+  }
+
+  Future showDeleteDialog(BuildContext context, String wordId) async {
+    return showDialog(
+      context: context,
+      // barrierDismissible: false,
+      builder: (context) {
+        return DeleteWordDialog(wordId: wordId);
       },
     );
   }

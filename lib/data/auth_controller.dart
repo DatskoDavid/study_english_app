@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
 class AuthController {
+  static final user = FirebaseAuth.instance.currentUser;
+
   get userName {
     final user = FirebaseAuth.instance.currentUser;
     return user!.displayName ?? user.email;

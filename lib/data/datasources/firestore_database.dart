@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../domain/models/word.dart';
@@ -10,76 +11,22 @@ class FirestoreDatabase {
   final CollectionReference _collectionRef =
       FirebaseFirestore.instance.collection('words');
 
+  var user = FirebaseAuth.instance.currentUser;
+
   Future<List<Word>> getCollection() async {
-    QuerySnapshot querySnapshot = await _collectionRef.get();
-    
+    QuerySnapshot querySnapshot = await _firestore
+        .collection('words')
+        .where(
+          "authorId",
+          isEqualTo: user!.uid,
+        )
+        .get();
+
     final List<Word> allWords =
         querySnapshot.docs.map((word) => Word.fromFirestore(word)).toList();
 
-    //print('2. Converted: ${simpleWords[0]}');
-    print(allWords.runtimeType);
-
     return allWords;
   }
-
-  /* Future<Word> getWord(String id) async {
-    final wordRef = _firestore.collection('words').doc(id);
-    late final Word word;
-
-    wordRef.get().then(
-      (DocumentSnapshot doc) {
-        word = Word.fromFirestore(doc);
-      },
-      onError: (e) => debugPrint("Error getting document: $e"),
-    );
-
-    debugPrint('CHECK word: $word');
-
-    return word;
-  } */
-
-  /*  Future<Word?> getDataOnce_customObjects() async {
-    final ref = _firestore
-        .collection('words')
-        .doc('LDmPK5lFnlKgHJtkzl2y')
-        .withConverter(
-          //fromFirestore: Word.fromFirestore,
-          toFirestore: (Word word, _) => word.toFirestore(),
-        );
-
-    final docSnap = await ref.get();
-    final word = docSnap.data(); // Convert to Word object
-    if (word != null) {
-      debugPrint(word as String?);
-    } else {
-      debugPrint("No such document.");
-    }
-
-    return word;
-  } */
-
-  /*  Future<List<Word>> getAll() async {
-    var wordsList = <Word>[];
-
-    _firestore.collection('words').get().then(
-      (querySnapshot) {
-        debugPrint("Successfully completed");
-        for (var docSnapshot in querySnapshot.docs) {
-          debugPrint('${docSnapshot.id} => ${docSnapshot.data()}');
-
-          final word = Word.fromFirestore(docSnapshot, );
-          debugPrint('Converted word: ');
-
-          // wordsList.add(word) as Word;
-
-          // wordsList.add(Word.fromFirestore(docSnapshot));
-        }
-      },
-    );
-
-    debugPrint('wordsList CHECK: $wordsList');
-    return wordsList;
-  } */
 
   Future<void> addWord(Map<String, dynamic> word) async {
     final docRef = _firestore.collection('words').doc();

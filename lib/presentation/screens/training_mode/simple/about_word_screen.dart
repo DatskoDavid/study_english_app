@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants/text_styles.dart';
-import '../../../domain/models/word.dart';
-import '../../widgets/training/meaning_card.dart';
-import '../../widgets/training/word_info_main_card.dart';
+import '../../../../constants/text_styles.dart';
+import '../../../../domain/models/word.dart';
+import '../../../widgets/training/meaning_card.dart';
+import '../../../widgets/training/word_info_main_card.dart';
 import 'quiz_screen.dart';
 
 class AboutWordScreen extends StatelessWidget {
@@ -42,7 +42,7 @@ class AboutWordScreen extends StatelessWidget {
                     ),
                     Text(
                       'Back',
-                      style: AppTextStyles.cardTitle,
+                      style: AppTextStyles.mediumText,
                     ),
                   ],
                 ),

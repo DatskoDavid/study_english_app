@@ -70,57 +70,61 @@ class _AddWordDialogState extends State<AddWordDialog> {
       actions: [
         Row(
           children: [
-            OutlinedButton(
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+            Expanded(
+              child: OutlinedButton(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Text(
-                  'Cancel',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),
             ),
-            const Spacer(),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(
-                  const Color.fromARGB(255, 66, 143, 68),
-                ),
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+            const SizedBox(width: 20),
+            Expanded(
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromARGB(255, 66, 143, 68),
+                  ),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
-              ),
-              onPressed: () async {
-                await checkWord(_wordController.text);
-                if (_formKey.currentState!.validate()) {
-                  DataHandler.addWordWorkflow(_wordController.text);
-                  // FirestoreDatabase().addWord()
-                  Navigator.pop(context);
-                }
-              },
-              child: const Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Text(
-                  'Submit',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
+                onPressed: () async {
+                  await checkWord(_wordController.text);
+                  if (_formKey.currentState!.validate()) {
+                    DataHandler.addWordWorkflow(_wordController.text);
+                    // FirestoreDatabase().addWord()
+                    Navigator.pop(context);
+                  }
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    'Add',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),

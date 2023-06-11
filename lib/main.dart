@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:real_diploma/data/datasources/firestore_database.dart';
-import 'package:real_diploma/presentation/screens/article_screen.dart';
-import 'package:real_diploma/presentation/screens/auth/registration_screen.dart';
-import 'package:real_diploma/presentation/screens/bottom_nav_bar_controller.dart';
-import 'package:real_diploma/presentation/screens/training_mode/input_word_screen.dart';
-import 'package:real_diploma/presentation/screens/training_mode/quiz_screen.dart';
-import 'package:real_diploma/presentation/screens/training_mode/result_screen.dart';
-import 'package:real_diploma/presentation/screens/training_mode/training_home.dart';
-import 'package:real_diploma/presentation/screens/vocabulary_screen.dart';
 
 import 'domain/models/article.dart';
+import 'domain/models/meaning.dart';
 import 'domain/models/training_info.dart';
 import 'domain/models/word.dart';
 import 'firebase_options.dart';
 import 'constants/colors.dart';
+
+import 'presentation/screens/article_screen.dart';
+import 'presentation/screens/auth/registration_screen.dart';
+import 'presentation/screens/bottom_nav_bar_controller.dart';
+import 'presentation/screens/training_mode/quiz/quiz_training.dart';
+import 'presentation/screens/training_mode/simple/about_word_screen.dart';
+import 'presentation/screens/training_mode/training_home.dart';
 import 'presentation/screens/auth/auth_handler_screen.dart';
-import 'presentation/screens/training_mode/about_word_screen.dart';
+import 'presentation/screens/training_mode/simple/input_word_screen.dart';
+import 'presentation/screens/training_mode/simple/quiz_screen.dart';
+import 'presentation/screens/training_mode/simple/result_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,14 +45,13 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: const AuthHandlerScreen(),
-      // home: const TrainingHome(),
+      // home: QuizTraining(word: testWords[0]),
       onGenerateRoute: (settings) {
         if (settings.name == BottomNavBarController.routeName) {
           return MaterialPageRoute(
             builder: (context) => const BottomNavBarController(),
           );
-        }
-        else if (settings.name == RegistrationScreen.routeName) {
+        } else if (settings.name == RegistrationScreen.routeName) {
           return MaterialPageRoute(
             builder: (context) => RegistrationScreen(),
           );
@@ -97,25 +97,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// final testWord = Word(
-//   word: 'book',
-//   phonetic: '[buk]',
-//   meanings: [
-//     Meaning(
-//       partOf: 'noun',
-//       meaning: 'physical objects cosisting of a number of page bound together',
-//     ),
-//     Meaning(
-//       partOf: 'verb',
-//       meaning: 'a record in which commercial accounts are recorded',
-//     ),
-//     Meaning(
-//       partOf: 'noun',
-//       meaning: 'physical objects cosisting of a number of page bound together',
-//     ),
-//     Meaning(
-//       partOf: 'noun',
-//       meaning: 'physical objects cosisting of a number of page bound together',
-//     ),
-//   ],
-// );
+final testWords = [
+  const Word(
+    word: 'book',
+    phonetic: '[buk]',
+    meanings: [
+      Meaning(
+        partOf: 'noun',
+        meaning:
+            'physical objects cosisting of a number of page bound together',
+      ),
+    ],
+  ),
+];

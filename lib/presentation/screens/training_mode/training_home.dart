@@ -17,7 +17,7 @@ class TrainingHome extends StatelessWidget {
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(
-              top: 60,
+              top: 30,
               right: 20,
               bottom: 50,
               left: 20,

@@ -40,7 +40,10 @@ class WordInfoMainCard extends StatelessWidget {
                       // const Icon(Icons.volume_up_rounded),
                     ],
                   ),
-                  Text(word.phonetic, style: AppTextStyles.phoneticText),
+                  Text(
+                    '[${word.phonetic}]',
+                    style: AppTextStyles.phoneticText,
+                  ),
                   const SizedBox(
                     height: 8,
                   ),

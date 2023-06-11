@@ -5,17 +5,18 @@ import 'meaning.dart';
 
 class Word extends Equatable {
   final String? id;
+  final String? authorId;
   final String word;
   final String phonetic;
   final List<Meaning> meanings;
 
   const Word({
     this.id,
+    this.authorId,
     required this.word,
     required this.phonetic,
     required this.meanings,
   });
-
 
 /* factory Word.fromDTO(WordApi wordApi) {
     final allMeanings = wordApi.results;
@@ -31,9 +32,7 @@ class Word extends Equatable {
         meanings: formattedMeaningList);
   } */
 
-  
   factory Word.fromFirestore(
-    
     DocumentSnapshot<Object?> snapshot,
     //SnapshotOptions? options,
   ) {
@@ -44,12 +43,12 @@ class Word extends Equatable {
     // print('allMeanings type: ${allMeanings.runtimeType}');
     // print('allMeanings: $allMeanings');
 
-
     final formattedMeaningList =
         allMeanings.map((item) => Meaning.fromFirestore(item)).toList();
 
     return Word(
       id: snapshot.id,
+      authorId: data['authorId'],
       word: data['word'],
       phonetic: data['phonetic'],
       meanings: formattedMeaningList,
@@ -64,6 +63,7 @@ class Word extends Equatable {
     print(formattedMeaningList);
 
     return {
+      'authorId': authorId,
       'word': word,
       'phonetic': phonetic,
       'meanings': formattedMeaningList,
@@ -72,12 +72,14 @@ class Word extends Equatable {
 
   Word copyWith({
     String? id,
+    String? authorId,
     String? word,
     String? phonetic,
     List<Meaning>? meanings,
   }) {
     return Word(
       id: id ?? this.id,
+      authorId: authorId ?? this.authorId,
       word: word ?? this.word,
       phonetic: phonetic ?? this.phonetic,
       meanings: meanings ?? this.meanings,

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants/colors.dart';
-import '../../../domain/models/training_info.dart';
-import '../../../domain/models/word.dart';
-import '../../widgets/training/next_screen_btn.dart';
-import '../../widgets/training/quiz_variant.dart';
+
+import '../../../../constants/colors.dart';
+import '../../../../domain/models/training_info.dart';
+import '../../../../domain/models/word.dart';
+import '../../../widgets/training/next_screen_btn.dart';
+import '../../../widgets/training/quiz_variant.dart';
 import 'input_word_screen.dart';
 
 class QuizScreen extends StatefulWidget {
