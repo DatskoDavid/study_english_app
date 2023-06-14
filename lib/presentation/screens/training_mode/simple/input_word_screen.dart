@@ -36,7 +36,12 @@ class _InputWordScreenState extends State<InputWordScreen> {
     return Scaffold(
       body: Center(
         child: ListView(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.only(
+            top: 60,
+            right: 20,
+            bottom: 10,
+            left: 20,
+          ),
           children: [
             Center(
               child: Container(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import '../../../../constants/colors.dart';
 import '../../../../domain/models/training_info.dart';
 import '../../../../domain/models/word.dart';
@@ -64,7 +63,12 @@ class _QuizScreenState extends State<QuizScreen> {
     return Scaffold(
       body: Center(
         child: ListView(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.only(
+            top: 50,
+            right: 20,
+            bottom: 10,
+            left: 20,
+          ),
           children: [
             Center(
               child: Container(
@@ -80,7 +84,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 15),
             ListView.separated(
               shrinkWrap: true,
               itemBuilder: (context, index) {
@@ -94,7 +98,7 @@ class _QuizScreenState extends State<QuizScreen> {
               itemCount: variants.length,
               separatorBuilder: (context, index) => const SizedBox(height: 20),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 40),
             NextScreenBtn(
               routeName: InputWordScreen.routeName,
               arguments: trainingInfo,

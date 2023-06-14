@@ -96,17 +96,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-final testWords = [
-  const Word(
-    word: 'book',
-    phonetic: '[buk]',
-    meanings: [
-      Meaning(
-        partOf: 'noun',
-        meaning:
-            'physical objects cosisting of a number of page bound together',
-      ),
-    ],
-  ),
-];

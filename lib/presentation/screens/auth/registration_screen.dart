@@ -22,7 +22,7 @@ class RegistrationScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(
-              top: 100,
+              top: 90,
               right: 20,
               bottom: 0,
               left: 20,
@@ -34,30 +34,30 @@ class RegistrationScreen extends StatelessWidget {
                   'HELLO ENG',
                   style: AppTextStyles.authLogoText,
                 ),
-                const SizedBox(height: 80),
+                const SizedBox(height: 40),
                 const Text(
                   'Welcome back you\'ve been missed!',
                   style: AppTextStyles.mediumText,
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 30),
                 SimpleTextField(
                   label: 'Name',
                   hintText: 'Start typing...',
                   controller: nameController,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 18),
                 SimpleTextField(
                   label: 'Email',
                   hintText: 'Start typing...',
                   controller: emailController,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 18),
                 PasswordTextField(
                   label: 'Password',
                   hintText: '*********',
                   controller: passwordController,
                 ),
-                const SizedBox(height: 70),
+                const SizedBox(height: 50),
                 SignInButton(
                   caption: 'Sign Up',
                   onTap: () => AuthController().signUp(

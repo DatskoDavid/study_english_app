@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text_styles.dart';
+import '../../domain/models/article.dart';
+import '../screens/article_screen.dart';
 
 class CardOfDay extends StatelessWidget {
   final String title;
-  final String description;
+  final Article article;
   final String buttonCaption;
-  final String image;
 
   const CardOfDay({
     super.key,
-    required this.title,
-    required this.description,
+    required this.article,
     required this.buttonCaption,
-    required this.image,
+    required this.title,
   });
 
   @override
@@ -35,9 +35,15 @@ class CardOfDay extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(title, style: AppTextStyles.cardTitle),
-                Text(description),
+                Text(article.title),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      ArticleScreen.routeName,
+                      arguments: article,
+                    );
+                  },
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                       vertical: 7,
@@ -59,7 +65,7 @@ class CardOfDay extends StatelessWidget {
           Expanded(
             child: SizedBox(
               width: 50,
-              child: Image.asset(image),
+              child: Image.asset(article.image),
             ),
           ),
         ],

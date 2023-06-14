@@ -20,7 +20,7 @@ class LoginScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(
-              top: 100,
+              top: 90,
               right: 20,
               bottom: 0,
               left: 20,
@@ -32,12 +32,12 @@ class LoginScreen extends StatelessWidget {
                   'HELLO ENG',
                   style: AppTextStyles.authLogoText,
                 ),
-                const SizedBox(height: 80),
+                const SizedBox(height: 40),
                 const Text(
                   'Welcome back you\'ve been missed!',
                   style: AppTextStyles.mediumText,
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 30),
                 SimpleTextField(
                   label: 'Email',
                   hintText: 'Start typing...',
@@ -76,7 +76,8 @@ class LoginScreen extends StatelessWidget {
                       ),
                     )
                   ],
-                )
+                ),
+                const SizedBox(height: 50),
               ],
             ),
           ),

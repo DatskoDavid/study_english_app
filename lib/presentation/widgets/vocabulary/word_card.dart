@@ -1,6 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:real_diploma/data/datasources/firestore_database.dart';
 
 import '../../../constants/colors.dart';
 import '../../../constants/text_styles.dart';

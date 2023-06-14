@@ -41,28 +41,24 @@ class TrainingHome extends StatelessWidget {
                   description: 'Print the full word',
                   routeName: '',
                 ),
-                const SizedBox(height: 20),
-                const TrainingCard(
-                  title: 'Mixed',
-                  description: 'All in one training',
-                  routeName: '',
-                ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 30),
                 const Text(
                   'Articles',
                   style: AppTextStyles.sectionTitle,
                 ),
                 const SizedBox(height: 10),
-                ArticleCard(
-                  article: articles[0],
-                ),
-                const SizedBox(height: 20),
-                ArticleCard(
-                  article: articles[0],
-                ),
-                const SizedBox(height: 20),
-                ArticleCard(
-                  article: articles[0],
+                ListView.separated(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return ArticleCard(
+                      article: articles[index],
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(height: 20);
+                  },
+                  itemCount: articles.length,
                 ),
               ],
             ),

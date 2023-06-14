@@ -24,9 +24,11 @@ class AboutWordScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 10,
-            horizontal: 20,
+          padding: const EdgeInsets.only(
+            top: 30,
+            right: 20,
+            bottom: 10,
+            left: 20,
           ),
           child: Column(
             children: [

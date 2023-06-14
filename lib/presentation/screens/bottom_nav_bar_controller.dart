@@ -20,7 +20,7 @@ class _BottomNavBarControllerState extends State<BottomNavBarController> {
   static int _selectedIndex = 0;
 
   late final _screens = <Widget>[
-    const HomeScreen(),
+    HomeScreen(),
     VocabularyScreen(),
     const TrainingHome(),
     ProfileScreen(),
