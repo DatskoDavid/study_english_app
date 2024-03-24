@@ -6,6 +6,7 @@ import 'meaning.dart';
 class Word extends Equatable {
   final String? id;
   final String? authorId;
+  final Timestamp? addedAt;
   final String word;
   final String phonetic;
   final List<Meaning> meanings;
@@ -13,6 +14,7 @@ class Word extends Equatable {
   const Word({
     this.id,
     this.authorId,
+    this.addedAt,
     required this.word,
     required this.phonetic,
     required this.meanings,
@@ -49,6 +51,7 @@ class Word extends Equatable {
     return Word(
       id: snapshot.id,
       authorId: data['authorId'],
+      addedAt: data['addedAt'],
       word: data['word'],
       phonetic: data['phonetic'],
       meanings: formattedMeaningList,
@@ -64,6 +67,7 @@ class Word extends Equatable {
 
     return {
       'authorId': authorId,
+      'addedAt': addedAt,
       'word': word,
       'phonetic': phonetic,
       'meanings': formattedMeaningList,
@@ -73,6 +77,7 @@ class Word extends Equatable {
   Word copyWith({
     String? id,
     String? authorId,
+    Timestamp? addedAt,
     String? word,
     String? phonetic,
     List<Meaning>? meanings,
@@ -80,6 +85,7 @@ class Word extends Equatable {
     return Word(
       id: id ?? this.id,
       authorId: authorId ?? this.authorId,
+      addedAt: addedAt ?? this.addedAt,
       word: word ?? this.word,
       phonetic: phonetic ?? this.phonetic,
       meanings: meanings ?? this.meanings,
@@ -87,5 +93,5 @@ class Word extends Equatable {
   }
 
   @override
-  List<Object?> get props => [id, word, phonetic, meanings];
+  List<Object?> get props => [id, authorId, addedAt, word, phonetic, meanings];
 }

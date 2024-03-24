@@ -45,6 +45,7 @@ class VocabularyScreen extends StatelessWidget {
                 "authorId",
                 isEqualTo: AuthController.user!.uid,
               )
+              .orderBy('addedAt', descending: true)
               .snapshots(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -63,6 +64,10 @@ class VocabularyScreen extends StatelessWidget {
                     deleteWord: () => showDeleteDialog(context, word.id!),
                   );
                 },
+              );
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text('Error: ${snapshot.error}'),
               );
             }
 
