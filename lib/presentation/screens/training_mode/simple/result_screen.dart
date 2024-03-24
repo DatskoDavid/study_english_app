@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:real_diploma/presentation/screens/bottom_nav_bar_controller.dart';
+import 'package:real_diploma/presentation/screens/skeleton_screen.dart';
 import 'package:real_diploma/presentation/screens/training_mode/training_home.dart';
 
 import '../../../../domain/models/training_info.dart';
@@ -123,7 +123,7 @@ class ResultScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pushNamedAndRemoveUntil(
               context,
-              BottomNavBarController.routeName,
+              SkeletonScreen.routeName,
               (route) => false,
             );
           }),

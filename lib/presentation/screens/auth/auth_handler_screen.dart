@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:real_diploma/presentation/screens/auth/login_screen.dart';
-import 'package:real_diploma/presentation/screens/bottom_nav_bar_controller.dart';
+import 'package:real_diploma/presentation/screens/skeleton_screen.dart';
 
 class AuthHandlerScreen extends StatelessWidget {
   const AuthHandlerScreen({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class AuthHandlerScreen extends StatelessWidget {
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return const BottomNavBarController();
+          return const SkeletonScreen();
         } else {
           return LoginScreen();
         }
