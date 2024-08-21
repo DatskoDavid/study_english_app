@@ -23,7 +23,7 @@ class StudyEnglishApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme:
             ColorScheme.fromSwatch(primarySwatch: Colors.indigo).copyWith(
-          background: AppColors.background,
+          surface: AppColors.background,
         ),
       ),
       debugShowCheckedModeBanner: false,

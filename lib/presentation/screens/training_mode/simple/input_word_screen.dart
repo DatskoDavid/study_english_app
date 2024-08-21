@@ -52,7 +52,7 @@ class _InputWordScreenState extends State<InputWordScreen> {
                 ),
                 child: Text(
                   widget.trainingInfo.word.meanings[0].meaning,
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -101,7 +101,7 @@ class _InputWordScreenState extends State<InputWordScreen> {
                     child: ElevatedButton(
                       onPressed: _checkInput,
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
+                        backgroundColor: WidgetStateProperty.all(
                           AppColors.primaryColor,
                         ),
                       ),

@@ -73,7 +73,7 @@ class _AddWordDialogState extends State<AddWordDialog> {
             Expanded(
               child: OutlinedButton(
                 style: ButtonStyle(
-                  shape: MaterialStateProperty.all(
+                  shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -99,10 +99,10 @@ class _AddWordDialogState extends State<AddWordDialog> {
             Expanded(
               child: ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
+                  backgroundColor: WidgetStateProperty.all<Color>(
                     const Color.fromARGB(255, 66, 143, 68),
                   ),
-                  shape: MaterialStateProperty.all(
+                  shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),

@@ -22,7 +22,7 @@ class DeleteWordDialog extends StatelessWidget {
             Expanded(
               child: OutlinedButton(
                 style: ButtonStyle(
-                  shape: MaterialStateProperty.all(
+                  shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -48,10 +48,10 @@ class DeleteWordDialog extends StatelessWidget {
             Expanded(
               child: ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
+                  backgroundColor: WidgetStateProperty.all<Color>(
                     const Color.fromARGB(255, 207, 83, 89),
                   ),
-                  shape: MaterialStateProperty.all(
+                  shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),

@@ -126,7 +126,7 @@ class _QuizTrainingState extends State<QuizTraining> {
                       onPressed: () => nextQuestion(),
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(AppColors.primaryColor),
+                            WidgetStateProperty.all(AppColors.primaryColor),
                       ),
                       child: const Text(
                         'Next',
