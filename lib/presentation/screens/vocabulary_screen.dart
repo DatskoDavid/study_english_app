@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
-import 'package:real_diploma/data/auth_controller.dart';
+import 'package:real_diploma/data/auth_service.dart';
 import 'package:real_diploma/presentation/widgets/vocabulary/delete_word_dialog.dart';
 
 import '../../constants/colors.dart';
@@ -43,7 +43,7 @@ class VocabularyScreen extends StatelessWidget {
           stream: _wordsCollection
               .where(
                 "authorId",
-                isEqualTo: AuthController.user!.uid,
+                isEqualTo: AuthService.user!.uid,
               )
               .orderBy('addedAt', descending: true)
               .snapshots(),

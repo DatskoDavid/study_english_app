@@ -55,7 +55,10 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         const SizedBox(height: 5),
         Container(
           height: 50,
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.only(
+            left: 20,
+            right: 10,
+          ),
           decoration: const BoxDecoration(
             color: AppColors.white,
             // borderRadius: BorderRadius.circular(AppBorderRadius.large),
@@ -78,7 +81,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
                       border: _transperentBorder(),
                       focusedBorder: _transperentBorder(),
                       hintText: widget.hintText,
-
+                      hintStyle: AppTextStyles.hintText,
                       /* IconButton(
                         onPressed: _showPass,
                         icon: const Icon(Icons.remove_red_eye,),

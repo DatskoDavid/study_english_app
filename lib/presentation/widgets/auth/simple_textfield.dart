@@ -59,6 +59,7 @@ class SimpleTextField extends StatelessWidget {
                 border: _transperentBorder(),
                 focusedBorder: _transperentBorder(),
                 hintText: hintText,
+                hintStyle: AppTextStyles.hintText,
               ),
             ),
           ),

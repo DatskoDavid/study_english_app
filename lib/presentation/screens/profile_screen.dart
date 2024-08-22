@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:real_diploma/constants/colors.dart';
 import 'package:real_diploma/constants/text_styles.dart';
-import 'package:real_diploma/data/auth_controller.dart';
+import 'package:real_diploma/data/auth_service.dart';
+import 'package:real_diploma/presentation/screens/auth/login_screen.dart';
 import 'package:real_diploma/presentation/widgets/profile_button.dart';
 
 class ProfileScreen extends StatelessWidget {
-  final authController = AuthController();
+  final authController = AuthService();
 
   ProfileScreen({Key? key}) : super(key: key);
 
@@ -72,7 +73,16 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 ProfileButton(
                   title: 'Sign out',
-                  handler: () => AuthController().signOut(),
+                  handler: () async {
+                    final message = await AuthService().signOut();
+                    if (message == 'Success') {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => LoginScreen(),
+                        ),
+                      );
+                    }
+                  },
                   icon: Icons.exit_to_app_outlined,
                 ),
                 const Spacer(),
