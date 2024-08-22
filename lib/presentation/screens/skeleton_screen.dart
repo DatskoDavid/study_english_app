@@ -16,7 +16,7 @@ class SkeletonScreen extends StatefulWidget {
 }
 
 class _SkeletonScreenState extends State<SkeletonScreen> {
-  static int _selectedIndex = 0;
+  int _selectedIndex = 0;
 
   late final _screens = <Widget>[
     HomeScreen(),
