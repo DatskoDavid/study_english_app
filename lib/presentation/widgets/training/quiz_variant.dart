@@ -8,7 +8,7 @@ class QuizVariant extends StatefulWidget {
   final Function onTapHandler;
   bool showCorrectAnswer;
 
-  QuizVariant({
+  QuizVariant({super.key, 
     required this.variant,
     required this.isCorrect,
     required this.onTapHandler,

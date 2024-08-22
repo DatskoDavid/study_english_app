@@ -37,7 +37,7 @@ class WordOfDay extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(title, style: AppTextStyles.cardTitle),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(
                   word,
                   style: AppTextStyles.mediumText,
@@ -46,7 +46,7 @@ class WordOfDay extends StatelessWidget {
                   phonetic,
                   style: AppTextStyles.phoneticText,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 InkWell(
                   onTap: () {},
                   child: Container(

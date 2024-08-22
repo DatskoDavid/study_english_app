@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:real_diploma/constants/colors.dart';
 import 'package:real_diploma/data/articles_fake_data/articles_data.dart';
-import 'package:real_diploma/presentation/screens/article_screen.dart';
 
 import '../widgets/card_of_day.dart';
 import '../widgets/word_of_day.dart';
@@ -29,7 +28,7 @@ class HomeScreen extends StatelessWidget {
         // ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(30),
+            padding: const EdgeInsets.all(30),
             child: Column(
               children: [
                 // Align(

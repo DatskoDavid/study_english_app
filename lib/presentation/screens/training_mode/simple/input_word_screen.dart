@@ -131,7 +131,7 @@ class _InputWordScreenState extends State<InputWordScreen> {
                         );
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
+                        backgroundColor: WidgetStateProperty.all(
                           AppColors.primaryColor,
                         ),
                       ),

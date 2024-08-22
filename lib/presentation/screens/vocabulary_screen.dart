@@ -12,6 +12,8 @@ import '../widgets/vocabulary/word_card.dart';
 import 'training_mode/simple/about_word_screen.dart';
 
 class VocabularyScreen extends StatelessWidget {
+  VocabularyScreen({super.key});
+
   final _wordsCollection = FirebaseFirestore.instance.collection('words');
 
   void goToAboutWordScreen(BuildContext context, Word word) =>

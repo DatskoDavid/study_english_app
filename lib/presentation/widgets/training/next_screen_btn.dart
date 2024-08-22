@@ -26,7 +26,7 @@ class NextScreenBtn extends StatelessWidget {
           arguments: arguments,
         ),
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(AppColors.primaryColor),
+          backgroundColor: WidgetStateProperty.all(AppColors.primaryColor),
         ),
         child: const Text(
           'Next',

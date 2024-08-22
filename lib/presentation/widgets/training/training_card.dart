@@ -10,7 +10,7 @@ class TrainingCard extends StatelessWidget {
   final String routeName;
 
   const TrainingCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     required this.routeName,
