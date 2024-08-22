@@ -72,14 +72,19 @@ abstract class AppTextStyles {
 
   static const signInLink = TextStyle(
     fontSize: 16,
-    color: AppColors.black,
-    fontWeight: FontWeight.w400,
-    decoration: TextDecoration.underline,
+    color: Color.fromARGB(255, 48, 99, 150),
+    fontWeight: FontWeight.w600,
   );
 
   static const signInBtnCaption = TextStyle(
     fontSize: 20,
     color: AppColors.white,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const hintText = TextStyle(
+    fontSize: 16,
+    color: Color.fromARGB(255, 134, 134, 134),
     fontWeight: FontWeight.w500,
   );
 }
